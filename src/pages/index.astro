@@ -33,45 +33,48 @@ import Card from '../components/Card.astro';
 				</linearGradient>
 			</defs>
 		</svg>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+
+		<h1><span class="text-gradient">Precision Lacrosse Academy</span></h1>
+
+		<section id="info-section" class="info-section pb-4">
+			<h2><span class="">Interested?</span></h2>
+
+			<ul role="list" class="display-grid">
+				<span class="info-heading">Book a session below!</span>
+				<span class="info-spacer">OR</span>
+				<span class="info-heading">Click the button for the direct sign up page!</span>
+			</ul>
+
+			<button class="px-10 bg-slate-300 text-slate-900 rounded-full">
+				<a href="https://calendar.app.google/QH8JiYrNapGN1o5t5" target="blank">Booking Page</a>
+			</button>
+		</section>
+
+		<!-- Google Calendar Appointment Scheduling begin -->
+		<section class="g-cal-iframe"> 
+			<iframe 
+				class="h-[100vh]" 
+				src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2ieeMuqarpIIk5jZZOZkcmB1LJ7roRdraZ8MugQWOuX4R5tDZtKGEYysNN3IJFJJvuoxln37RP?gv=true" 
+				style="border: 0" 
+				width="100%" 
+				frameborder="0"
+				loading="lazy"
+				>
+			</iframe>
+		</section>
+		<!-- end Google Calendar Appointment Scheduling -->
+
 	</main>
 </Layout>
 
 <style>
 	main {
 		margin: auto;
-		padding: 1rem;
-		width: 800px;
+		padding: 0.25rem;
 		max-width: calc(100% - 2rem);
 		color: white;
 		font-size: 20px;
-		line-height: 1.6;
+		line-height: 5.6;
 	}
 	.astro-a {
 		position: absolute;
@@ -87,7 +90,14 @@ import Card from '../components/Card.astro';
 		font-weight: 700;
 		line-height: 1;
 		text-align: center;
-		margin-bottom: 1em;
+		padding-bottom: 1em;
+	}
+	h2 {
+		font-size: 2rem;
+		font-weight: 500;
+		line-height: 0.85;
+		text-align: center;
+		padding-bottom: 1em;
 	}
 	.text-gradient {
 		background-image: var(--accent-gradient);
@@ -114,10 +124,32 @@ import Card from '../components/Card.astro';
 	.instructions strong {
 		color: rgb(var(--accent-light));
 	}
-	.link-card-grid {
+	.display-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
 		gap: 2rem;
 		padding: 0;
+	}
+	.g-cal-iframe {
+		border-radius: 0.75rem;
+		background: radial-gradient(rgb(196, 181, 253), rgb(209, 213, 219));
+	}
+	.info-section {
+		text-align: center;
+	}
+	.info-spacer {
+		font-size: 1.50rem;
+		font-weight: 800;
+		line-height: 0.95;
+		text-align: center;
+		padding-bottom: 1em;
+		opacity: 80%;
+	}
+	.info-heading {
+		font-size: 1.50rem;
+		font-weight: 800;
+		line-height: 0.95;
+		text-align: center;
+		padding-bottom: 1em;
 	}
 </style>
