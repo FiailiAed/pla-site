@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Steps from '../components/Steps.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="P. L. A. - Train">
 	<main>
 		<svg
 			class="astro-a"
@@ -36,19 +37,27 @@ import Card from '../components/Card.astro';
 
 		<h1><span class="text-gradient">Precision Lacrosse Academy</span></h1>
 
-		<section id="info-section" class="info-section pb-4">
-			<h2><span class="">Interested?</span></h2>
 
-			<ul role="list" class="display-grid">
-				<span class="info-heading">Book a session below!</span>
-				<span class="info-spacer">OR</span>
-				<span class="info-heading">Click the button for the direct sign up page!</span>
-			</ul>
+		<section id="info-section" class="info-section pb-4 display-grid">
+			<div class="mx-auto max-w-3xl dark:border dark:border-slate-600 dark:shadow-none p-6 rounded-md shadow-xl text-center">
+				<div class="text-center md:mx-auto mb-0 md:mb-0">
+					<h2 class="font-bold leading-tighter leading-tighter font-heading tracking-tighter text-heading md:text-4xl mb-4 text-4xl">
+						Interested?
+					</h2>
+					<p class="text-muted text-xl mt-4 dark:text-slate-400">
+						Book a session below or click the button the be taken to the direct booking page!
+					</p>
+				</div>
+				<div class="flex flex-col flex-nowrap gap-4 m-auto max-w-xs sm:flex-row sm:justify-center sm:max-w-md mt-6">
+					<button class="px-8 bg-slate-300 text-slate-900 rounded-full">
+						<a href="https://calendar.app.google/QH8JiYrNapGN1o5t5" target="blank">Booking Page</a>
+					</button>
+				</div>
+			</div>
 
-			<button class="px-10 bg-slate-300 text-slate-900 rounded-full">
-				<a href="https://calendar.app.google/QH8JiYrNapGN1o5t5" target="blank">Booking Page</a>
-			</button>
+			<Steps />
 		</section>
+
 
 		<!-- Google Calendar Appointment Scheduling begin -->
 		<section class="g-cal-iframe"> 
