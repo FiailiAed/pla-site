@@ -49,37 +49,92 @@ import Steps from '../components/Steps.astro';
 					</p>
 				</div>
 				<div class="flex flex-col flex-nowrap gap-4 m-auto max-w-xs sm:flex-row sm:justify-center sm:max-w-md mt-6">
-					<button class="px-8 bg-slate-300 text-slate-900 rounded-full">
-						<a href="https://calendar.app.google/QH8JiYrNapGN1o5t5" target="blank">Booking Page</a>
-					</button>
+					<a class="w-full" href="https://calendar.app.google/QH8JiYrNapGN1o5t5" target="blank">
+						<button class="w-full px-8 bg-slate-300 text-slate-900 rounded-full">
+							Book a Session Today!
+						</button>
+					</a>
+				</div>
+				<div class="flex flex-col flex-nowrap gap-4 m-auto max-w-xs sm:flex-row sm:justify-center sm:max-w-md mt-6">
+					<a class="w-full" href="https://calendar.google.com/calendar/u/0/appointments/AcZssZ34G0wj1_cpJJVJIGRPJMt26IvRyh3Rsch8adg=" target="blank">
+						<button class="w-full px-8 bg-slate-300 text-slate-900 rounded-full">
+							All Available Training
+						</button>
+					</a>
 				</div>
 			</div>
 
 			<Steps />
 		</section>
 
+		<section class="accordian-container">
+			<h2>Available Session Types:</h2>
 
-		<!-- Google Calendar Appointment Scheduling begin -->
-		<section class="g-cal-iframe"> 
-			<iframe 
-				class="h-[100vh]" 
-				src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2ieeMuqarpIIk5jZZOZkcmB1LJ7roRdraZ8MugQWOuX4R5tDZtKGEYysNN3IJFJJvuoxln37RP?gv=true" 
-				style="border: 0" 
-				width="100%" 
-				frameborder="0"
-				loading="lazy"
-				>
-			</iframe>
+			<button type="button" class="accordion flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+				<span>Field Training Sessions</span>
+				<svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+				</svg>
+			</button>
+			<div class="accordion-content">
+				<!-- Google Calendar Appointment Scheduling begin -->
+				<section class="g-cal-iframe"> 
+					<iframe 
+						class="h-[50rem]" 
+						src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2ieeMuqarpIIk5jZZOZkcmB1LJ7roRdraZ8MugQWOuX4R5tDZtKGEYysNN3IJFJJvuoxln37RP?gv=true" 
+						style="border: 0" 
+						width="100%" 
+						frameborder="0"
+						>
+					</iframe>
+				</section>
+				<!-- end Google Calendar Appointment Scheduling -->
+
+			</div>
+
+			<button type="button" class="accordion flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+				<span>Goalie Training Sessions</span>
+				<svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+				</svg>
+			</button>
+			<div class="accordion-content">
+				<!-- Google Goalie Calendar Appointment Scheduling begin -->
+				<iframe class="h-[50rem]" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2gCMTYszuopsJM0I9EvI4ErwZDnKWoNrA2GPpLUe1OCWYfyeWMczI4XBLATiAm9tZoCil4oOql?gv=true" style="border: 0" width="100%" frameborder="0"></iframe>
+				<!-- end Goalie Google Calendar Appointment Scheduling -->
+			</div>
 		</section>
-		<!-- end Google Calendar Appointment Scheduling -->
+
+<script>
+	const accordionBtns = document.querySelectorAll(".accordion");
+
+	accordionBtns.forEach((accordion) => {
+		accordion.onclick = function () {
+			this.classList.toggle("is-open");
+
+			let content = this.nextElementSibling;
+
+			if (content.style.maxHeight) {
+				//this is if the accordion is open
+				content.style.maxHeight = null;
+			} else {
+				//if the accordion is currently closed
+				content.style.maxHeight = content.scrollHeight + "px";
+			}
+		};
+	});
+</script>
 
 	</main>
+
 </Layout>
 
 <style>
 	main {
 		margin: auto;
 		padding: 0.25rem;
+		padding-bottom: 2.5rem;
+		padding-top: 1rem;
 		max-width: calc(100% - 2rem);
 		color: white;
 		font-size: 20px;
@@ -139,12 +194,18 @@ import Steps from '../components/Steps.astro';
 		gap: 2rem;
 		padding: 0;
 	}
+	/*
 	.g-cal-iframe {
 		border-radius: 0.75rem;
 		background: radial-gradient(rgb(196, 181, 253), rgb(209, 213, 219));
 	}
+	 */
+	iframe {
+		border-radius: 0.75rem;
+		background: radial-gradient(rgb(243 255 243),rgb(255,255,255));
+	}
 	.info-section {
-		text-align: center;
+		padding-bottom: 2.5rem;
 	}
 	.info-spacer {
 		font-size: 1.50rem;
@@ -160,5 +221,42 @@ import Steps from '../components/Steps.astro';
 		line-height: 0.95;
 		text-align: center;
 		padding-bottom: 1em;
+	}
+
+	.accordian-container {
+	}
+
+	button.accordion {
+		width: 100%;
+		text-align: left;
+		padding: 0.25rem 0.50rem;
+		cursor: pointer;
+		transition: background-color 0.45s linear;
+		/*
+		background-color: whitesmoke;
+		border: none;
+		outline: none;
+		font-size: 18px;
+		color: #333;
+		*/
+	}
+
+	/*
+	button.accordion:hover,
+	button.accordion.is-open {
+		background-color: #ddd;
+		color: #131519;
+	}
+	*/
+
+	.accordion-content {
+		/* background-color: white;
+		border-left: 1px solid whitesmoke;
+		border-right: 1px solid whitesmoke;
+		padding: 0 20px;
+		*/
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height;
 	}
 </style>
