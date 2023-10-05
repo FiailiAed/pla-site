@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+import { ViewTransitions } from 'astro:transitions';
+---
+
+<Layout title="P. L. A. - Quick Release Series">
+	<main>
+		<h1><span class="text-gradient">Precision Lacrosse Academy</span></h1>
+		<h2><span class="text-gradient">Quick Release Series</span></h2>
+
+		<section class="series-section grid grid-cols-1">
+			<h1> Online Workout Series Coming Soon! </h1>
+			<h2> stay tuned<span class="animate-pulse"> . . . </span></h2>
+		</section>
+	</main>
+
+	<Footer 
+		href="www.pla-train.vercel.app" 
+		tailwind="p-3 text-slate-500 text-center sticky bottom-0"
+	/>
+
+	<ViewTransitions />
+</Layout>
+
+
+<style>
+	main {
+		margin: auto;
+		padding: 0.25rem;
+		padding-bottom: 2.5rem;
+		padding-top: 1rem;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 5.6;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		padding-bottom: 1em;
+	}
+	h2 {
+		font-size: 2rem;
+		font-weight: 500;
+		line-height: 0.85;
+		text-align: center;
+		padding-bottom: 1em;
+	}
+
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.series-section {
+		border: solid white 5px;
+	}
+</style>
