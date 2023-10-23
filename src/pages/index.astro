@@ -3,6 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import Steps from '../components/Steps.astro';
 import Footer from '../components/Footer.astro';
+
+import LogoAU from '../components/LogoAU.astro';
+import LogoPLA from '../components/LogoPLA.astro';
+
 import { ViewTransitions } from 'astro:transitions';
 ---
 
@@ -91,34 +95,13 @@ import { ViewTransitions } from 'astro:transitions';
 			</div>
 
 			<div class="grid grid-cols-1 grid-rows-1 gap-6">
-				<a href="https://app.acuityscheduling.com/schedule.php?owner=20225934&calendarID=8666644" target="_blank" class="flex">
+				<a href="https://app.acuityscheduling.com/schedule.php?owner=20225934&calendarID=8666644" target="_blank" class="flex relative">
 					<button class="grow bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-4 border-b-4 border-indigo-700 hover:border-indigo-500 rounded">
-						<span>PAID Training Services<span class="pl-2 text-xs text-red-500">PAID!</span></span>
+						<span class=""><LogoAU height="" width="" twClass="absolute left-0 top-0 h-16 w-16" />Athletes United<span class="pl-2 text-xs text-red-500">PAID!</span></span>
 					</button>
 				</a>
 			</div>
 		</section>
-
-
-<script>
-	const accordionBtns = document.querySelectorAll(".accordion");
-
-	accordionBtns.forEach((accordion) => {
-		accordion.onclick = function () {
-			this.classList.toggle("is-open");
-
-			let content = this.nextElementSibling;
-
-			if (content.style.maxHeight) {
-				//this is if the accordion is open
-				content.style.maxHeight = null;
-			} else {
-				//if the accordion is currently closed
-				content.style.maxHeight = content.scrollHeight + "px";
-			}
-		};
-	});
-</script>
 
 	</main>
 
@@ -225,42 +208,5 @@ import { ViewTransitions } from 'astro:transitions';
 		line-height: 0.95;
 		text-align: center;
 		padding-bottom: 1em;
-	}
-
-	.accordian-container {
-	}
-
-	button.accordion {
-		width: 100%;
-		text-align: left;
-		padding: 0.25rem 0.50rem;
-		cursor: pointer;
-		transition: background-color 0.45s linear;
-		/*
-		background-color: whitesmoke;
-		border: none;
-		outline: none;
-		font-size: 18px;
-		color: #333;
-		*/
-	}
-
-	/*
-	button.accordion:hover,
-	button.accordion.is-open {
-		background-color: #ddd;
-		color: #131519;
-	}
-	*/
-
-	.accordion-content {
-		/* background-color: white;
-		border-left: 1px solid whitesmoke;
-		border-right: 1px solid whitesmoke;
-		padding: 0 20px;
-		*/
-		max-height: 0;
-		overflow: hidden;
-		transition: max-height;
 	}
 </style>
